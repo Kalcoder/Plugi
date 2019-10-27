@@ -1,0 +1,20 @@
+name: Plugi
+version: @version@
+main: com.github.kalcoder.plugi.Plugi
+api-version: 1.13
+prefix: Plugi
+authors: [Kalcoder]
+description: A massive plugin full of toggleable features such as custom ban menu, ranks, etc
+website: https://github.com/Kalcoder/Plugi
+commands:
+  test:
+    usage: /test
+    aliases:
+      - t
+    description: A command for testing purposes...
+#    permission: admin.test
+permissions:
+  admin:
+    children:
+      whitelist:
+        description: Allows you to view/modify the whitelist

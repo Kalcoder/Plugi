@@ -1,15 +1,13 @@
 package com.github.kalcoder.plugi.commands;
 
-import com.github.kalcoder.plugi.CommandPermission;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.permissions.Permission;
 
 public abstract class BaseCommand implements CommandExecutor {
   
-  protected final String name;
+  final String name;
   
   BaseCommand(String name) {
     this.name = name;

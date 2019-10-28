@@ -1,6 +1,7 @@
 package com.github.kalcoder.plugi;
 
 import com.github.kalcoder.plugi.commands.PlugiConfigCommand;
+import com.github.kalcoder.plugi.listeners.CustomLeaveJoinMessages;
 import com.github.kalcoder.plugi.util.YamlConfigHelper;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +16,11 @@ public final class Plugi extends JavaPlugin {
     
     registerSettings();
     registerCommands();
+    registerEvents();
+  }
+  
+  private void registerEvents() {
+    new CustomLeaveJoinMessages(this);
   }
   
   private void registerCommands() {

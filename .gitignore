@@ -2,3 +2,6 @@
 /.gradle/
 /build/
 /build/classes/java/main/
+.idea/
+Plugi.iml
+gradle/

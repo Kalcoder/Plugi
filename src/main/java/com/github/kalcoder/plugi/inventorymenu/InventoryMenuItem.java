@@ -1,10 +1,11 @@
 package com.github.kalcoder.plugi.inventorymenu;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class InventoryMenuItem {
+public abstract class InventoryMenuItem {
   
   private final String name;
   private InventoryMenu menu;
@@ -23,9 +24,7 @@ public class InventoryMenuItem {
     this.menu = menu;
   }
   
-  public void onClick(Player p) {
-  
-  }
+  public abstract void onClick(Player p);
   
   public void refreshMenu(Player p) {
     menu.refresh(p);

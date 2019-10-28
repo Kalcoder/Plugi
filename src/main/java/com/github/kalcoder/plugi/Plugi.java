@@ -1,6 +1,6 @@
 package com.github.kalcoder.plugi;
 
-import com.github.kalcoder.plugi.commands.WhitelistCommand;
+import com.github.kalcoder.plugi.commands.PlugiConfigCommand;
 import com.github.kalcoder.plugi.util.YamlConfigHelper;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,11 +18,12 @@ public final class Plugi extends JavaPlugin {
   }
   
   private void registerCommands() {
-    new WhitelistCommand(this);
+    new PlugiConfigCommand(this);
   }
   
   private void registerSettings() {
-    settings.new Setting<>("Whitelist", false);
+    settings.new Setting<>("Use Join Message", true);
+    settings.new Setting<>("Use Leave Message", true);
   }
   
   @Override

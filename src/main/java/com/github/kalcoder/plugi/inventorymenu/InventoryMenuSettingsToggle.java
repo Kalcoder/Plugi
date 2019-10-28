@@ -10,8 +10,8 @@ public class InventoryMenuSettingsToggle extends InventoryMenuToggle {
   
   private final Setting<Boolean> setting;
   
-  public InventoryMenuSettingsToggle(String nameOn, String nameOff, Setting<Boolean> setting) {
-    super(nameOn, nameOff, setting.getValue());
+  public InventoryMenuSettingsToggle(String name, Material material, Setting<Boolean> setting) {
+    super(name, material, setting.getValue());
     this.setting = setting;
   }
   

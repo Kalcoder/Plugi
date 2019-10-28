@@ -1,46 +1,42 @@
 package com.github.kalcoder.plugi.inventorymenu;
 
+import com.github.kalcoder.plugi.util.ChatHelper;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InventoryMenuToggle extends InventoryMenuItem {
   
   boolean toggled;
-  public String nameOn;
-  public String nameOff;
   
-  public InventoryMenuToggle(String nameOn, String nameOff, boolean defaultValue) {
-    super(new ItemStack(Material.GRAY_DYE), nameOn);
-    this.nameOn = nameOn;
-    this.nameOff = nameOff;
+  public InventoryMenuToggle(String name, Material material, boolean defaultValue) {
+    super(new ItemStack(material), name);
     this.toggled = defaultValue;
+    updateLore();
+  }
+  
+  private void updateLore() {
+    ItemMeta itemMeta = item.getItemMeta();
+    List<String> lore = itemMeta.getLore();
+    lore = new ArrayList<>();
+    lore.add(ChatHelper.translateColors(toggled ? "&f> &6On" : "  &6On"));
+    lore.add(ChatHelper.translateColors(toggled ? "&6  Off" : "&f> &6Off"));
+    itemMeta.setLore(lore);
+    
+    item.setItemMeta(itemMeta);
   }
   
   void toggle() {
     toggled = !toggled;
-    
-    if (toggled) {
-      this.item.setType(Material.LIME_DYE);
-      ItemMeta itemMeta = this.item.getItemMeta();
-      itemMeta.setDisplayName(nameOn);
-      this.item.setItemMeta(itemMeta);
-    }
-    else {
-      this.item.setType(Material.GRAY_DYE);
-      ItemMeta itemMeta = this.item.getItemMeta();
-      System.out.println(itemMeta.getDisplayName());
-      System.out.println(nameOff);
-      itemMeta.setDisplayName(nameOff);
-      System.out.println(itemMeta.getDisplayName());
-      this.item.setItemMeta(itemMeta);
-    }
+    updateLore();
   }
   
   @Override
   public void onClick(Player p) {
     toggle();
-    super.onClick(p);
   }
 }

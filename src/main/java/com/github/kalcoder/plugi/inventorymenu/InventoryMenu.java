@@ -18,6 +18,7 @@ public class InventoryMenu implements Listener {
   private final String name;
   public List<InventoryMenuItem> menuItems;
   private Inventory menu;
+  private int rows;
   
   public InventoryMenu(Plugi plugi, String name, InventoryMenuType menuType, List<InventoryMenuItem> menuItems) {
     plugi.getServer().getPluginManager().registerEvents(this, plugi);
@@ -29,32 +30,58 @@ public class InventoryMenu implements Listener {
   }
   
   private void generateInventory() {
-    int rows;
-    
     switch (menuType) {
       case OPTIONS:
-        
-        rows = (menuItems.size() / 9 + 1);
+  
+        rows = menuItems.size() % 4 == 0 ? menuItems.size() / 4 : menuItems.size() / 4 + 1;
         menu = Bukkit.createInventory(null, (rows + 2) * 9, name);
-        for (InventoryMenuItem item :
-                menuItems) {
-          menu.addItem(item.item);
+  
+        fillInventory();
+    }
+  }
+  
+  private void fillInventory() {
+    int inventoryIndex;
+    int currentMenuItemIndex = 0;
+    
+    for (int c = 1; c <= rows; c++) {
+      
+      inventoryIndex = c * 9;
+      
+      if (menuItems.size() - currentMenuItemIndex >= 4) {
+        int i = 0;
+        
+        for (i = currentMenuItemIndex; i < currentMenuItemIndex+4; i++, inventoryIndex++) {
+          menu.setItem(++inventoryIndex, menuItems.get(i).item);
+          System.out.println("i = " + i);
         }
+        
+        currentMenuItemIndex = i;
+      } else {
+        
+        if (menuItems.size() - (currentMenuItemIndex) == 1) {
+          menu.setItem(inventoryIndex + 4, menuItems.get(currentMenuItemIndex).item);
+        }
+        else if (menuItems.size() - (currentMenuItemIndex) == 2) {
+          menu.setItem(inventoryIndex + 3, menuItems.get(currentMenuItemIndex++).item);
+          menu.setItem(inventoryIndex + 5, menuItems.get(currentMenuItemIndex).item);
+        }
+        else if (menuItems.size() - (currentMenuItemIndex) == 3) {
+          menu.setItem(inventoryIndex + 2, menuItems.get(currentMenuItemIndex++).item);
+          menu.setItem(inventoryIndex + 4, menuItems.get(currentMenuItemIndex++).item);
+          menu.setItem(inventoryIndex + 6, menuItems.get(currentMenuItemIndex).item);
+        }
+      }
     }
   }
   
   private void refreshInventory() {
     menu.clear();
-      for (InventoryMenuItem item :
-              menuItems) {
-        menu.addItem(item.item);
-      }
+    fillInventory();
   }
   
   public void refresh(Player p) {
     refreshInventory();
-//    p.closeInventory();
-//    p.openInventory(menu);
   }
   
   public List<InventoryMenuItem> getMenuItems() {

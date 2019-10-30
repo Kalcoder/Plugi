@@ -48,16 +48,16 @@ public abstract class InventoryMenu implements Listener {
   }
   
   @EventHandler()
-  public void onInventoryClick(InventoryClickEvent event) {
-    if (!event.getClickedInventory().equals(menu)) return;
-    if (event.getCurrentItem() == null) return;
+  public void onInventoryClick(InventoryClickEvent e) {
+    if (!e.getClickedInventory().equals(menu)) return;
+    if (e.getCurrentItem() == null) return;
     
-    event.setCancelled(true);
+    e.setCancelled(true);
     
     for (InventoryMenuItem menuItem :
             menuItems) {
-      if (event.getCurrentItem().equals(menuItem.item)) {
-        menuItem.onClick(((Player) event.getWhoClicked()));
+      if (e.getCurrentItem().equals(menuItem.item)) {
+        menuItem.onClick(((Player) e.getWhoClicked()));
       }
     }
   }

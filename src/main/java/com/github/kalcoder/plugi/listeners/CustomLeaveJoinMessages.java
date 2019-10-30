@@ -17,16 +17,16 @@ public class CustomLeaveJoinMessages implements Listener {
   }
   
   @EventHandler
-  public void onPlayerJoin(PlayerJoinEvent event) {
+  public void onPlayerJoin(PlayerJoinEvent e) {
     if (!((boolean) plugi.settings.findSetting("Use Join Message").getValue())) return;
     
-    event.setJoinMessage(ChatHelper.translateColors("&8[&a+&8] &f" + event.getPlayer().getDisplayName()));
+    e.setJoinMessage(ChatHelper.translateColors("&8[&a+&8] &f" + e.getPlayer().getDisplayName()));
   }
   
   @EventHandler
-  public void onPlayerQuit(PlayerQuitEvent event) {
+  public void onPlayerQuit(PlayerQuitEvent e) {
     if (!((boolean) plugi.settings.findSetting("Use Leave Message").getValue())) return;
   
-    event.setQuitMessage(ChatHelper.translateColors("&8[&c-&8] &f" + event.getPlayer().getDisplayName()));
+    e.setQuitMessage(ChatHelper.translateColors("&8[&c-&8] &f" + e.getPlayer().getDisplayName()));
   }
 }

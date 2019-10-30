@@ -11,10 +11,10 @@ import org.bukkit.entity.Player;
 
 public abstract class BaseCommand implements CommandExecutor {
   
-  final String name;
-  final Plugi plugi;
+  public final String name;
+  public final Plugi plugi;
   
-  BaseCommand(String name, Plugi plugi) {
+  public BaseCommand(String name, Plugi plugi) {
     plugi.getCommand(name).setExecutor(this);
     this.name = name;
     this.plugi = plugi;
@@ -47,6 +47,6 @@ public abstract class BaseCommand implements CommandExecutor {
     return true;
   }
   
-  abstract void execute(CommandSender sender, Command command, String label, String[] args);
+  public abstract void execute(CommandSender sender, Command command, String label, String[] args);
   
 }

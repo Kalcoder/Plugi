@@ -3,9 +3,14 @@ package com.github.kalcoder.plugi.commands;
 import org.bukkit.permissions.Permission;
 
 public enum CommandPermission {
-  
+
+//  Admin
   ADMIN_ALL,
-  ADMIN_WHITELIST;
+  ADMIN_PLUGICONFIG,
+  
+//  Players
+  PLAYERS_ALL,
+  PLAYERS_INVSEE;
   
   private Permission permission;
   

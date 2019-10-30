@@ -1,6 +1,7 @@
 package com.github.kalcoder.plugi;
 
-import com.github.kalcoder.plugi.commands.PlugiConfigCommand;
+import com.github.kalcoder.plugi.commands.admin.PlugiConfigCommand;
+import com.github.kalcoder.plugi.commands.players.InvseeCommand;
 import com.github.kalcoder.plugi.listeners.CustomLeaveJoinMessages;
 import com.github.kalcoder.plugi.util.YamlConfigHelper;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,6 +26,7 @@ public final class Plugi extends JavaPlugin {
   
   private void registerCommands() {
     new PlugiConfigCommand(this);
+    new InvseeCommand(this);
   }
   
   private void registerSettings() {

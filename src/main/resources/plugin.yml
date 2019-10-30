@@ -14,8 +14,15 @@ commands:
       - pc
       - plugic
     description: Modify Plugi's settings ingame
+  invsee:
+    usage: /invsee <player>
+    description: View a player's inventory
 permissions:
   admin:
     children:
-      whitelist:
+      plugiconfig:
         description: Allows you to view/modify the whitelist
+  players:
+    children:
+      invsee:
+        description: Allows you to see another player's inventory

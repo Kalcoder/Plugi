@@ -14,6 +14,8 @@ commands:
       - pc
       - plugic
     description: Modify Plugi's settings ingame
+  sudo:
+    usage: /sudo <player> <chat message/command>
   invsee:
     usage: /invsee <player>
     description: View a player's inventory
@@ -22,6 +24,8 @@ permissions:
     children:
       plugiconfig:
         description: Allows you to view/modify the whitelist
+      sudo:
+        description: Allows you to execute a command or send a chat message as another player
   players:
     children:
       invsee:

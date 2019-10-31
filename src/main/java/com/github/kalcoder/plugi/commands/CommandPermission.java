@@ -7,6 +7,7 @@ public enum CommandPermission {
 //  Admin
   ADMIN_ALL,
   ADMIN_PLUGICONFIG,
+  ADMIN_SUDO,
   
 //  Players
   PLAYERS_ALL,

@@ -77,7 +77,7 @@ public class InvseeCommand extends BaseCommand implements IRequirePermission, IP
   }
   
   @EventHandler
-  public void onInventoryClick(InventoryClickEvent event) {
-    if (event.getInventory().equals(inventory)) event.setCancelled(true);
+  public void onInventoryClick(InventoryClickEvent e) {
+    if (e.getInventory().equals(inventory)) e.setCancelled(true);
   }
 }

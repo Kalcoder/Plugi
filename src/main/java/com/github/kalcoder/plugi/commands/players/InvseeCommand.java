@@ -5,13 +5,11 @@ import com.github.kalcoder.plugi.commands.BaseCommand;
 import com.github.kalcoder.plugi.commands.CommandPermission;
 import com.github.kalcoder.plugi.commands.IPlayerCommand;
 import com.github.kalcoder.plugi.commands.IRequirePermission;
-import com.github.kalcoder.plugi.util.ChatHelper;
-import com.github.kalcoder.plugi.util.InventoryMenuHelper;
+import com.github.kalcoder.plugi.util.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,7 +30,7 @@ public class InvseeCommand extends BaseCommand implements IRequirePermission, IP
   @Override
   public void execute(CommandSender sender, Command command, String label, String[] args) {
     if (args.length < 1) {
-      sender.sendMessage(ChatHelper.translateColors("&cError: You must input a player!"));
+      sender.sendMessage(ChatUtil.translateColors("&cError: You must input a player!"));
       return;
     }
     
@@ -72,7 +70,7 @@ public class InvseeCommand extends BaseCommand implements IRequirePermission, IP
       ((Player) sender).openInventory(inventory);
   
   
-    } else sender.sendMessage(ChatHelper.translateColors("&cError: The player you have entered either doesn't exist or is not online! Please check your spelling and try again"));
+    } else sender.sendMessage(ChatUtil.translateColors("&cError: The player you have entered either doesn't exist or is not online! Please check your spelling and try again"));
     
   }
   

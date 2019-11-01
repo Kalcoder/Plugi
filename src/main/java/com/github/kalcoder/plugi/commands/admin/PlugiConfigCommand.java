@@ -6,8 +6,8 @@ import com.github.kalcoder.plugi.commands.CommandPermission;
 import com.github.kalcoder.plugi.commands.IPlayerCommand;
 import com.github.kalcoder.plugi.commands.IRequirePermission;
 import com.github.kalcoder.plugi.inventorymenu.InventoryMenuSettingsToggle;
-import com.github.kalcoder.plugi.util.ChatHelper;
-import com.github.kalcoder.plugi.util.InventoryMenuHelper;
+import com.github.kalcoder.plugi.util.ChatUtil;
+import com.github.kalcoder.plugi.util.InventoryMenuUtil;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,9 +22,9 @@ public class PlugiConfigCommand extends BaseCommand implements IRequirePermissio
   
   @Override
   public void execute(CommandSender sender, Command command, String label, String[] args) {
-    InventoryMenuHelper.generateOptionsInventoryMenu(plugi, "Plugi Settings",
-            new InventoryMenuSettingsToggle(ChatHelper.translateColors("&5Join Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("Use Join Message")),
-            new InventoryMenuSettingsToggle(ChatHelper.translateColors("&5Leave Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("Use Leave Message"))).show((Player) sender);
+    InventoryMenuUtil.generateOptionsInventoryMenu(plugi, "Plugi Settings",
+            new InventoryMenuSettingsToggle(ChatUtil.translateColors("&5Join Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("Use Join Message")),
+            new InventoryMenuSettingsToggle(ChatUtil.translateColors("&5Leave Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("Use Leave Message"))).show((Player) sender);
     
   }
 }

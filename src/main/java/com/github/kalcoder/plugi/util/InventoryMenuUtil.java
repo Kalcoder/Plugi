@@ -9,7 +9,7 @@ import org.bukkit.inventory.Inventory;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 
-public class InventoryMenuHelper {
+public class InventoryMenuUtil {
 
   public static OptionsInventoryMenu generateOptionsInventoryMenu(Plugi plugi, String name, InventoryMenuItem... items) {
     OptionsInventoryMenu inventoryMenu = new OptionsInventoryMenu(plugi, name, Arrays.asList(items));

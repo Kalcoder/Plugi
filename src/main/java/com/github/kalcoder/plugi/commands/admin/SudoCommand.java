@@ -4,7 +4,7 @@ import com.github.kalcoder.plugi.Plugi;
 import com.github.kalcoder.plugi.commands.BaseCommand;
 import com.github.kalcoder.plugi.commands.CommandPermission;
 import com.github.kalcoder.plugi.commands.IRequirePermission;
-import com.github.kalcoder.plugi.util.ChatHelper;
+import com.github.kalcoder.plugi.util.ChatUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -21,10 +21,10 @@ public class SudoCommand extends BaseCommand implements IRequirePermission {
   @Override
   public void execute(CommandSender sender, Command command, String label, String[] args) {
     if (args.length == 0) {
-      sender.sendMessage(ChatHelper.translateColors("&cError: You must input a player name!"));
+      sender.sendMessage(ChatUtil.translateColors("&cError: You must input a player name!"));
       return;
     } if (args.length == 1) {
-      sender.sendMessage(ChatHelper.translateColors("&cError: You must give a command or chat message!"));
+      sender.sendMessage(ChatUtil.translateColors("&cError: You must give a command or chat message!"));
       return;
     }
     
@@ -39,7 +39,7 @@ public class SudoCommand extends BaseCommand implements IRequirePermission {
     }
   
     if (p == null) {
-      sender.sendMessage(ChatHelper.translateColors("&cError: The player you have entered either doesn't exist or isn't online! Please check your spelling and try again!"));
+      sender.sendMessage(ChatUtil.translateColors("&cError: The player you have entered either doesn't exist or isn't online! Please check your spelling and try again!"));
       return;
     }
     

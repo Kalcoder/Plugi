@@ -1,6 +1,6 @@
 package com.github.kalcoder.plugi;
 
-import com.github.kalcoder.plugi.util.YamlConfigHelper;
+import com.github.kalcoder.plugi.util.YamlConfigUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Settings {
   
   public Settings(Plugi plugi) {
     this.plugi = plugi;
-    if (!YamlConfigHelper.configurationExists("settings", plugi)) YamlConfigHelper.createNewConfig("settings", plugi);
+    if (!YamlConfigUtil.configurationExists("settings", plugi)) YamlConfigUtil.createNewConfig("settings", plugi);
   }
   
   public List<Setting> getSettings() {

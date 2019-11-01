@@ -1,6 +1,6 @@
 package com.github.kalcoder.plugi.inventorymenu;
 
-import com.github.kalcoder.plugi.util.ChatHelper;
+import com.github.kalcoder.plugi.util.ChatUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -23,8 +23,8 @@ public class InventoryMenuToggle extends InventoryMenuItem {
     ItemMeta itemMeta = item.getItemMeta();
     List<String> lore = itemMeta.getLore();
     lore = new ArrayList<>();
-    lore.add(ChatHelper.translateColors(toggled ? "&f> &6On" : "  &6On"));
-    lore.add(ChatHelper.translateColors(toggled ? "&6  Off" : "&f> &6Off"));
+    lore.add(ChatUtil.translateColors(toggled ? "&f> &6On" : "  &6On"));
+    lore.add(ChatUtil.translateColors(toggled ? "&6  Off" : "&f> &6Off"));
     itemMeta.setLore(lore);
     
     item.setItemMeta(itemMeta);

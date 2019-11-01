@@ -4,7 +4,7 @@ import com.github.kalcoder.plugi.commands.admin.PlugiConfigCommand;
 import com.github.kalcoder.plugi.commands.admin.SudoCommand;
 import com.github.kalcoder.plugi.commands.players.InvseeCommand;
 import com.github.kalcoder.plugi.listeners.CustomLeaveJoinMessages;
-import com.github.kalcoder.plugi.util.YamlConfigHelper;
+import com.github.kalcoder.plugi.util.YamlConfigUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Plugi extends JavaPlugin {
@@ -14,7 +14,7 @@ public final class Plugi extends JavaPlugin {
   @Override
   public void onEnable() {
     settings = new Settings(this);
-    YamlConfigHelper.loadAllConfigs(this);
+    YamlConfigUtil.loadAllConfigs(this);
     
     registerSettings();
     registerCommands();
@@ -38,6 +38,6 @@ public final class Plugi extends JavaPlugin {
   
   @Override
   public void onDisable() {
-    YamlConfigHelper.saveAllConfigs(this);
+  
   }
 }

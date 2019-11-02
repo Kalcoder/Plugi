@@ -1,5 +1,6 @@
 package com.github.kalcoder.plugi;
 
+import com.github.kalcoder.plugi.errors.ConfigurationNotFoundException;
 import com.github.kalcoder.plugi.util.YamlConfigUtil;
 
 import java.util.ArrayList;
@@ -13,6 +14,15 @@ public class Settings {
   public Settings(Plugi plugi) {
     this.plugi = plugi;
     if (!YamlConfigUtil.configurationExists("settings", plugi)) YamlConfigUtil.createNewConfig("settings", plugi);
+    try {
+      for (String path :
+              YamlConfigUtil.getAllKeysFromConfig("settings", false)) {
+  
+        new Setting<>(path, YamlConfigUtil.readFromConfig("settings", path));
+      }
+    } catch (ConfigurationNotFoundException e) {
+      e.printStackTrace();
+    }
   }
   
   public List<Setting> getSettings() {
@@ -46,6 +56,7 @@ public class Settings {
     String name;
     
     public Setting(String name, V value) {
+      if (settings.contains(this)) return;
       this.name = name;
       this.value = value;
       settings.add(this);

@@ -29,8 +29,8 @@ public final class Plugi extends JavaPlugin {
   }
   
   private void registerSettings() {
-    settings.new Setting<>("Use Join Message", true);
-    settings.new Setting<>("Use Leave Message", true);
+    settings.new Setting<>("usejoinmessage", true);
+    settings.new Setting<>("useleavemessage", true);
   }
   
   private void preLoad() {

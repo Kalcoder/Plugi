@@ -18,14 +18,14 @@ public class CustomLeaveJoinMessages implements Listener {
   
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent e) {
-    if (!((boolean) plugi.settings.findSetting("Use Join Message").getValue())) return;
+    if (!((boolean) plugi.settings.findSetting("usejoinmessage").getValue())) return;
     
     e.setJoinMessage(ChatUtil.translateColors("&8[&a+&8] &f" + e.getPlayer().getDisplayName()));
   }
   
   @EventHandler
   public void onPlayerQuit(PlayerQuitEvent e) {
-    if (!((boolean) plugi.settings.findSetting("Use Leave Message").getValue())) return;
+    if (!((boolean) plugi.settings.findSetting("useleavemessage").getValue())) return;
   
     e.setQuitMessage(ChatUtil.translateColors("&8[&c-&8] &f" + e.getPlayer().getDisplayName()));
   }

@@ -18,10 +18,15 @@ public class Settings {
       for (String path :
               YamlConfigUtil.getAllKeysFromConfig("settings", false)) {
   
-        new Setting<>(path, YamlConfigUtil.readFromConfig("settings", path));
+        settings.add(new Setting<>(path, YamlConfigUtil.readFromConfig("settings", path)));
       }
     } catch (ConfigurationNotFoundException e) {
       e.printStackTrace();
+    }
+    for (Setting setting :
+            settings) {
+      System.out.println("setting.getValue() = " + setting.getValue());
+      System.out.println("setting.name = " + setting.name);
     }
   }
   
@@ -56,10 +61,9 @@ public class Settings {
     String name;
     
     public Setting(String name, V value) {
-      if (settings.contains(this)) return;
       this.name = name;
       this.value = value;
-      settings.add(this);
+      if (settings.contains(this)) System.out.println("Hi");
     }
   
     public V getValue() {

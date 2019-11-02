@@ -107,6 +107,22 @@ public class YamlConfigUtil {
     
   }
   
+  public static void setInConfig(String name, String path, Object value) throws ConfigurationNotFoundException {
+    for (File file :
+            configurations.values()) {
+      if (file.getName().substring(0, file.getName().length() - 4).equalsIgnoreCase(name)) {
+        YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
+        config.set(path, value);
+        try {
+          config.save(file);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    throw new ConfigurationNotFoundException(name);
+  }
+  
   //endregion
 
 }

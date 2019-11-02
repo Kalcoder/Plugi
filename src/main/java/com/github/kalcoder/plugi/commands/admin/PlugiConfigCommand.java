@@ -23,8 +23,8 @@ public class PlugiConfigCommand extends BaseCommand implements IRequirePermissio
   @Override
   public void execute(CommandSender sender, Command command, String label, String[] args) {
     InventoryMenuUtil.generateOptionsInventoryMenu(plugi, "Plugi Settings",
-            new InventoryMenuSettingsToggle(ChatUtil.translateColors("&5Join Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("Use Join Message")),
-            new InventoryMenuSettingsToggle(ChatUtil.translateColors("&5Leave Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("Use Leave Message"))).show((Player) sender);
+            new InventoryMenuSettingsToggle(ChatUtil.translateColors("&5Join Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("usejoinmessage")),
+            new InventoryMenuSettingsToggle(ChatUtil.translateColors("&5Leave Message"), Material.WRITABLE_BOOK, plugi.settings.findSetting("useleavemessage"))).show((Player) sender);
     
   }
 }

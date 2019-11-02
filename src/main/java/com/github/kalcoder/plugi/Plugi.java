@@ -13,12 +13,9 @@ public final class Plugi extends JavaPlugin {
   
   @Override
   public void onEnable() {
-    settings = new Settings(this);
-    YamlConfigUtil.loadAllConfigs(this);
-    
-    registerSettings();
-    registerCommands();
-    registerEvents();
+    preLoad();
+    load();
+    postLoad();
   }
   
   private void registerEvents() {
@@ -34,6 +31,22 @@ public final class Plugi extends JavaPlugin {
   private void registerSettings() {
     settings.new Setting<>("Use Join Message", true);
     settings.new Setting<>("Use Leave Message", true);
+  }
+  
+  private void preLoad() {
+    YamlConfigUtil.loadAllConfigs(this);
+  }
+  
+  private void load() {
+    settings = new Settings(this);
+    
+    registerCommands();
+    registerEvents();
+    registerSettings();
+  }
+  
+  private void postLoad() {
+  
   }
   
   @Override

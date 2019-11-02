@@ -1,12 +1,15 @@
 package com.github.kalcoder.plugi.util;
 
 import com.github.kalcoder.plugi.Plugi;
+import com.github.kalcoder.plugi.errors.ConfigurationNotFoundException;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class YamlConfigUtil {
 
@@ -52,13 +55,21 @@ public class YamlConfigUtil {
   //endregion
   
   //region Config Management
-  public static <T> T readFromConfig(String name, String path) {
-    for (YamlConfiguration config :
-            configurations.keySet()) {
-      if (config.getName().equalsIgnoreCase(name)) return (T) config.get(path);
+  public static Set<String> getAllKeysFromConfig(String name, boolean deep) throws ConfigurationNotFoundException {
+    for (File file :
+            configurations.values()) {
+      System.out.println("file.getName() = " + file.getName().substring(0, file.getName().length() - 4));
+      if (file.getName().substring(0, file.getName().length() - 4).equalsIgnoreCase(name)) return YamlConfiguration.loadConfiguration(file).getKeys(deep);
     }
-    
-    return null;
+    throw new ConfigurationNotFoundException(name);
+  }
+  
+  public static Object readFromConfig(String name, String path) throws ConfigurationNotFoundException {
+    for (File file :
+            configurations.values()) {
+      if (file.getName().substring(0, file.getName().length() - 4).equalsIgnoreCase(name)) return YamlConfiguration.loadConfiguration(file).get(path);
+    }
+    throw new ConfigurationNotFoundException(name);
   }
   
   public static <T> T readFromConfig(YamlConfiguration config, String path) {
@@ -68,6 +79,34 @@ public class YamlConfigUtil {
   public static <T> T readFromConfig(File configFile, String path) {
     return (T) YamlConfiguration.loadConfiguration(configFile).get(path);
   }
+  
+  public static boolean readBooleanFromConfig(String name, String path) throws ConfigurationNotFoundException {
+    for (File file :
+            configurations.values()) {
+      if (file.getName().substring(0, file.getName().length() - 4).equalsIgnoreCase(name)) return YamlConfiguration.loadConfiguration(file).getBoolean(path);
+    }
+    throw new ConfigurationNotFoundException(name);
+    
+  }
+  
+  public static String readStringFromConfig(String name, String path) throws ConfigurationNotFoundException {
+    for (File file :
+            configurations.values()) {
+      if (file.getName().substring(0, file.getName().length() - 4).equalsIgnoreCase(name)) return YamlConfiguration.loadConfiguration(file).getString(path);
+    }
+    throw new ConfigurationNotFoundException(name);
+    
+  }
+  
+  public static int readIntFromConfig(String name, String path) throws ConfigurationNotFoundException {
+    for (File file :
+            configurations.values()) {
+      if (file.getName().substring(0, file.getName().length() - 4).equalsIgnoreCase(name)) return YamlConfiguration.loadConfiguration(file).getInt(path);
+    }
+    throw new ConfigurationNotFoundException(name);
+    
+  }
+  
   //endregion
 
 }

@@ -18,21 +18,12 @@ public final class Plugi extends JavaPlugin {
     postLoad();
   }
   
-  private void registerEvents() {
-    new CustomLeaveJoinMessages(this);
+  @Override
+  public void onDisable() {
+  
   }
   
-  private void registerCommands() {
-    new PlugiConfigCommand(this);
-    new InvseeCommand(this);
-    new SudoCommand(this);
-  }
-  
-  private void registerSettings() {
-    settings.new Setting<>("usejoinmessage", true);
-    settings.new Setting<>("useleavemessage", true);
-  }
-  
+  //region Loading
   private void preLoad() {
     YamlConfigUtil.loadAllConfigs(this);
   }
@@ -48,9 +39,23 @@ public final class Plugi extends JavaPlugin {
   private void postLoad() {
   
   }
+  //endregion
   
-  @Override
-  public void onDisable() {
-  
+  //region Registers
+  private void registerEvents() {
+    new CustomLeaveJoinMessages(this);
   }
+  
+  private void registerCommands() {
+    new PlugiConfigCommand(this);
+    new InvseeCommand(this);
+    new SudoCommand(this);
+  }
+  
+  private void registerSettings() {
+    settings.new Setting<>("usejoinmessage", true);
+    settings.new Setting<>("useleavemessage", true);
+  }
+  //endregion
+  
 }

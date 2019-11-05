@@ -19,6 +19,8 @@ commands:
   invsee:
     usage: /invsee <player>
     description: View a player's inventory
+  hat:
+    usage: /hat
 permissions:
   admin:
     children:

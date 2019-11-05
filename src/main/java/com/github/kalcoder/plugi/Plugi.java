@@ -2,6 +2,7 @@ package com.github.kalcoder.plugi;
 
 import com.github.kalcoder.plugi.commands.admin.PlugiConfigCommand;
 import com.github.kalcoder.plugi.commands.admin.SudoCommand;
+import com.github.kalcoder.plugi.commands.misc.HatCommand;
 import com.github.kalcoder.plugi.commands.players.InvseeCommand;
 import com.github.kalcoder.plugi.listeners.CustomLeaveJoinMessages;
 import com.github.kalcoder.plugi.util.YamlConfigUtil;
@@ -50,6 +51,7 @@ public final class Plugi extends JavaPlugin {
     new PlugiConfigCommand(this);
     new InvseeCommand(this);
     new SudoCommand(this);
+    new HatCommand(this);
   }
   
   private void registerSettings() {

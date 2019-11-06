@@ -22,7 +22,7 @@ public abstract class BaseCommand implements CommandExecutor {
   @Override
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     
-    if (this instanceof IPlayerCommand && !(sender instanceof Player)) {
+    if (this instanceof IClientCommand && !(sender instanceof Player)) {
       sender.sendMessage(ChatUtil.translateColors("&cError while executing command: Only a player can use this command!"));
       return true;
     }

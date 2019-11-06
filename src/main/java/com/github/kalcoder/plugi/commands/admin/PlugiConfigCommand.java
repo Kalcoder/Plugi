@@ -3,7 +3,7 @@ package com.github.kalcoder.plugi.commands.admin;
 import com.github.kalcoder.plugi.Plugi;
 import com.github.kalcoder.plugi.commands.BaseCommand;
 import com.github.kalcoder.plugi.commands.CommandPermission;
-import com.github.kalcoder.plugi.commands.IPlayerCommand;
+import com.github.kalcoder.plugi.commands.IClientCommand;
 import com.github.kalcoder.plugi.commands.IRequirePermission;
 import com.github.kalcoder.plugi.inventorymenu.InventoryMenuSettingsToggle;
 import com.github.kalcoder.plugi.util.ChatUtil;
@@ -13,7 +13,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class PlugiConfigCommand extends BaseCommand implements IRequirePermission, IPlayerCommand {
+public class PlugiConfigCommand extends BaseCommand implements IRequirePermission, IClientCommand {
   
   public PlugiConfigCommand(Plugi plugi) {
     super("plugiconfig", plugi);

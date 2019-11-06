@@ -21,6 +21,8 @@ commands:
     description: View a player's inventory
   hat:
     usage: /hat
+  head:
+    usage: /head <player name>
 permissions:
   admin:
     children:

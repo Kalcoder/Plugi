@@ -2,7 +2,7 @@ package com.github.kalcoder.plugi.commands.misc;
 
 import com.github.kalcoder.plugi.Plugi;
 import com.github.kalcoder.plugi.commands.BaseCommand;
-import com.github.kalcoder.plugi.commands.IPlayerCommand;
+import com.github.kalcoder.plugi.commands.IClientCommand;
 import com.github.kalcoder.plugi.util.ChatUtil;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class HatCommand extends BaseCommand implements IPlayerCommand {
+public class HatCommand extends BaseCommand implements IClientCommand {
   public HatCommand(Plugi plugi) {
     super("hat", plugi);
   }
@@ -26,7 +26,5 @@ public class HatCommand extends BaseCommand implements IPlayerCommand {
     
     p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
     p.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-    
-    
   }
 }

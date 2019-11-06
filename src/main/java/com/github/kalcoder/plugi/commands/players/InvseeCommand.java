@@ -3,7 +3,7 @@ package com.github.kalcoder.plugi.commands.players;
 import com.github.kalcoder.plugi.Plugi;
 import com.github.kalcoder.plugi.commands.BaseCommand;
 import com.github.kalcoder.plugi.commands.CommandPermission;
-import com.github.kalcoder.plugi.commands.IPlayerCommand;
+import com.github.kalcoder.plugi.commands.IClientCommand;
 import com.github.kalcoder.plugi.commands.IRequirePermission;
 import com.github.kalcoder.plugi.util.ChatUtil;
 import org.bukkit.Bukkit;
@@ -17,7 +17,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class InvseeCommand extends BaseCommand implements IRequirePermission, IPlayerCommand, Listener {
+public class InvseeCommand extends BaseCommand implements IRequirePermission, IClientCommand, Listener {
   
   private Inventory inventory;
   

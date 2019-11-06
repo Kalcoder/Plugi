@@ -1,4 +1,4 @@
 package com.github.kalcoder.plugi.commands;
 
-public interface IPlayerCommand {
+public interface IClientCommand {
 }

@@ -23,6 +23,8 @@ commands:
     usage: /hat
   head:
     usage: /head <player name>
+  nuke:
+    usage: /nuke <player name>
 permissions:
   admin:
     children:

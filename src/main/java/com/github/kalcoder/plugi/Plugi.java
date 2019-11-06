@@ -2,6 +2,7 @@ package com.github.kalcoder.plugi;
 
 import com.github.kalcoder.plugi.commands.admin.PlugiConfigCommand;
 import com.github.kalcoder.plugi.commands.admin.SudoCommand;
+import com.github.kalcoder.plugi.commands.fun.NukeCommand;
 import com.github.kalcoder.plugi.commands.misc.HatCommand;
 import com.github.kalcoder.plugi.commands.misc.HeadCommand;
 import com.github.kalcoder.plugi.commands.players.InvseeCommand;
@@ -54,6 +55,7 @@ public final class Plugi extends JavaPlugin {
     new SudoCommand(this);
     new HatCommand(this);
     new HeadCommand(this);
+    new NukeCommand(this);
   }
   
   private void registerSettings() {
